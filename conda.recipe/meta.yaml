@@ -1,0 +1,39 @@
+{% set data = load_setup_py_data() %}
+
+package:
+  name: biovis-pybase-plugins
+  version: {{ data.version }}
+
+
+source:
+  - path: ../
+
+
+build:
+  include_recipe: True
+
+
+requirements:
+  build:
+    - python {{ python }}
+    - setuptools
+
+  run:
+    - python {{ python }}
+    - biovis-report ~=0.5
+    - multiqc
+
+test:
+  imports:
+    - multiqc.multiqc
+
+about:
+  home: {{ data.url }}
+  license: MIT
+  license_file: LICENSE.md
+  license_family: MIT
+
+  summary: {{ data.description }}
+  description: {{ data.description }}
+  doc_url: https://github.com/biovis-report/biovis-pybase-plugins/blob/master/README.md
+  dev_url: {{ data.url }}
