@@ -4,7 +4,7 @@ def get_version():
     return '0.5.0'
 
 setup(
-    name='biovis-base-plugins',
+    name='biovis-pybase-plugins',
     version=get_version(),
     description='A set of Python-based plugins for biovis-report to draw interactive plots.',
     keywords='biovis-plugin',
@@ -16,7 +16,7 @@ setup(
     include_package_data=True,
     install_requires=[
         'biovis-report~=0.5',
-        'multiqc'
+        'multiqc~=1.11'
     ],
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -33,7 +33,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'biovis.plugins': [
-            'multiqc = multiqc.multiqc:MultiqcPlugin'
+            'multiqc-py = multiqc.multiqc:MultiqcPlugin'
         ]
     }
 )
